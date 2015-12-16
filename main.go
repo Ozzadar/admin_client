@@ -9,14 +9,12 @@ import (
 
 func main() {
 	//connect to this socket
-	conn, _ := net.Dial("tcp", "192.168.100.104:1337")
+	conn, _ := net.Dial("tcp", "127.0.0.1:1337")
 
 	
 	//read in input from stdin
-		reader := bufio.NewReader(os.Stdin)
-		fmt.Println("What is your username?" )
-		name, _ := reader.ReadString('\n')
-		conn.Write([]byte(name)[0:len(name)-1])
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Welcome to the Oasis!" )
 
 	go ListenForResponse(conn)
 
